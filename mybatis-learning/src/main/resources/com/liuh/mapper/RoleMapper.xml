@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace：对应的接口类-->
+<mapper namespace="com.liuh.mapper.RoleMapper">
+
+    <insert id="insertRole" parameterType="role">
+        insert into Role (roleName, note) values (#{roleName}, #{note});
+    </insert>
+
+    <select id="selectRole" parameterType="int" resultType="role">
+        select * from Role where id = #{id};
+    </select>
+
+</mapper>
