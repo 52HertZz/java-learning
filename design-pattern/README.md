@@ -3,3 +3,6 @@
 2. 导入 spring-web 和 lombok
 3. server.port=8088
 4. 新建 HelloController 测试前台 web 返回通过：http://localhost:8088/hello/world
+
+# # 2023 年 02 月 08 日
+1. 部分配置信息修改
