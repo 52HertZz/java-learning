@@ -3,10 +3,23 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--  属性配置  -->
+    <properties resource="jdbc.properties"/>
+    <!--    <properties>
+            <property name="database.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="database.url"
+                      value="jdbc:mysql://localhost:3306/mybatis_learning?useSSL=false&amp;serverTimezone=Hongkong&amp;characterEncoding=utf-8&amp;autoReconnect=true"/>
+            <property name="database.username" value="root"/>
+            <property name="database.password" value="123456"/>
+        </properties>-->
     <!--  别名  -->
     <typeAliases>
         <typeAlias alias="role" type="com.liuh.pojo.Role"/>
     </typeAliases>
+
+    <typeHandlers>
+        <typeHandler handler="com.liuh.handler.MyTypeHandler" javaType="String" jdbcType="VARCHAR"/>
+    </typeHandlers>
 
     <!--  数据库环境  -->
     <environments default="development">
@@ -15,11 +28,11 @@
             <transactionManager type="JDBC"/>
             <!--  数据库连接配置 POOLED mybatis 内部提供的连接池  -->
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="driver" value="${database.driver}"/>
                 <property name="url"
-                          value="jdbc:mysql://localhost:3306/mybatis_learning?useSSL=false&amp;serverTimezone=Hongkong&amp;characterEncoding=utf-8&amp;autoReconnect=true"/>
-                <property name="username" value="root"/>
-                <property name="password" value="123456"/>
+                          value="${database.url}"/>
+                <property name="username" value="${database.username}"/>
+                <property name="password" value="${database.password}"/>
             </dataSource>
         </environment>
     </environments>

@@ -18,8 +18,8 @@ public class MyTest {
     @Test
     public void insertRole() {
         Role role = new Role();
-        role.setRoleName("b1");
-        role.setNote("b2");
+        role.setRoleName("c1");
+        role.setNote("c2");
         SqlSession sqlSession = null;
         try {
             sqlSession = SqlSessionFactoryUtils.openSqlSession();
@@ -38,7 +38,6 @@ public class MyTest {
 
     @Test
     public void selectRole() {
-
         SqlSession sqlSession = null;
         try {
             sqlSession = SqlSessionFactoryUtils.openSqlSession();

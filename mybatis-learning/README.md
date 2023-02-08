@@ -11,3 +11,7 @@ CREATE TABLE `role` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 ```
+
+
+# # 2023 年 02 月 08 日
+1. 部分配置信息修改
