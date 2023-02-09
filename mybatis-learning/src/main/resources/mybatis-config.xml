@@ -12,9 +12,19 @@
             <property name="database.username" value="root"/>
             <property name="database.password" value="123456"/>
         </properties>-->
+    <settings>
+        <!--  开启延迟加载  -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--  是否采用层级加载  -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+
     <!--  别名  -->
     <typeAliases>
-        <typeAlias alias="role" type="com.liuh.pojo.Role"/>
+        <!--        <typeAlias alias="role" type="com.liuh.pojo.Role"/>-->
+        <!--        <typeAlias alias="task" type="com.liuh.pojo.Task"/>-->
+        <!--        <typeAlias alias="workCard" type="com.liuh.pojo.WorkCard"/>-->
+        <package name="com.liuh.pojo"/>
     </typeAliases>
 
     <typeHandlers>
@@ -39,6 +49,8 @@
 
     <!--  mapper配置文件注册  -->
     <mappers>
-        <mapper resource="com/liuh/mapper/RoleMapper.xml"/>
+        <!--        <mapper resource="com/liuh/mapper/RoleMapper.xml"/>-->
+        <!--        <mapper resource="com/liuh/mapper/TaskMapper.xml"/>-->
+        <package name="com.liuh.mapper"/>
     </mappers>
 </configuration>

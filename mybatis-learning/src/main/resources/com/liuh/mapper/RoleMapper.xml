@@ -4,11 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace：对应的接口类-->
 <mapper namespace="com.liuh.mapper.RoleMapper">
-<!--    <resultMap id="roleMapper" type="role">-->
-<!--        <result property="id" column="id"/>-->
-<!--        <result property="roleName" column="roleName" jdbcType="VARCHAR" javaType="string"/>-->
-<!--        <result property="note" column="note" typeHandler="com.liuh.handler.MyTypeHandler"/>-->
-<!--    </resultMap>-->
+    <!--    <resultMap id="roleMapper" type="role">-->
+    <!--        <result property="id" column="id"/>-->
+    <!--        <result property="roleName" column="roleName" jdbcType="VARCHAR" javaType="string"/>-->
+    <!--        <result property="note" column="note" typeHandler="com.liuh.handler.MyTypeHandler"/>-->
+    <!--    </resultMap>-->
 
     <insert id="insertRole" parameterType="role">
         insert into Role (roleName, note)

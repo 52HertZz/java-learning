@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuh.mapper.EmployeeMapper">
+    <resultMap id="employee" type="employee">
+        <id column="id" property="id"/>
+        <result column="real_name" property="realName"/>
+        <result column="sex" property="sex"/>
+        <result column="birthday" property="birthday"/>
+        <result column="mobile" property="mobile"/>
+        <result column="email" property="email"/>
+        <result column="position_" property="position"/>
+        <result column="note" property="note"/>
+        <!--  一对一关联工牌表  -->
+        <association property="workCard" column="id" fetchType="lazy"
+                     select="com.liuh.mapper.WorkCardMapper.getWorkCardByEmpId" />
+        <!--  一对多关联员工任务表  -->
+        <collection property="employeeTaskList" column="id" fetchType="eager"
+                    select="com.liuh.mapper.EmployeeTaskMapper.getEmployeeTaskByEmpId"/>
+        <!--  鉴别器  -->
+        <discriminator javaType="Long" column="sex">
+            <case value="1L" resultMap="maleHealthFormMapper"></case>
+            <case value="2L" resultMap="femaleHealthFormMapper"></case>
+        </discriminator>
+    </resultMap>
+
+    <resultMap id="maleHealthFormMapper" type="maleEmployee" extends="employee">
+        <association property="maleHealthForm" column="id"
+                     select="com.liuh.mapper.MaleHealthFormMapper.getMaleHealthForm"/>
+    </resultMap>
+
+    <resultMap id="femaleHealthFormMapper" type="femaleEmployee" extends="employee">
+        <association property="femaleHealthForm" column="id"
+                     select="com.liuh.mapper.FemaleHealthFormMapper.getFemaleHealthFormMapper"/>
+    </resultMap>
+    <select id="getEmployee" parameterType="Long" resultType="employee">
+        select id,
+               real_name as realName,
+               sex,
+               birthday,
+               mobile,
+               email,
+               position_ as `position`,
+               note
+        from t_employee
+        where id = #{id}
+    </select>
+
+</mapper>

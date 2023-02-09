@@ -8,12 +8,12 @@ import org.junit.Test;
 
 /**
  * @PackageName: com.liuh
- * @FileName: MyTest
+ * @FileName: RoleTest
  * @Description:
  * @Author: Liuh
  * @Date: 2023/2/3
  */
-public class MyTest {
+public class RoleTest {
 
     @Test
     public void insertRole() {
